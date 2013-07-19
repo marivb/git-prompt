@@ -13,10 +13,12 @@ git_dirty() {
       awk 'index($0,"Untracked files:") { unknown = 1 }
            index($0,"modified:") { changed = 1 }
            index($0,"new file:") { new = 1 }
+           index($0,"deleted:") { deleted = 1 }
            END {
              if (unknown) printf "?"
              else if (changed) printf "!"
              else if (new) printf "."
+             else if (deleted) printf "-"
            }'
 }
 
@@ -26,7 +28,7 @@ git_branch() {
 }
 
 # Set the actual prompt string here
-PS1='\[$(title $(PWD))\]$(remote_hostname)\[$(fgx 154)\]\w$(git_branch)\[$(fgx 154)\]$(git_dirty)\n\[\r\]\[$(fgx 26)\]\$\[$(ansi_reset)\] '
+PS1='\[$(title $(PWD))\]$(colorful_hostname) \[$(fgx 154)\]\w$(git_branch)\[$(fgx 154)\]$(git_dirty)\n\[\r\]\[$(fgx 26)\]\$\[$(ansi_reset)\] '
 
 # Pseudocode for new features
 # if exists? '.git' then display_git_prompt # speed up the prompt if there's no git repo in this directory
