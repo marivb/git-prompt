@@ -32,7 +32,7 @@ The status indicator can be:
 
 * Nothing: no changes
 * `?`: untracked files
-* `!`: modified files
+* `!`: modified/renamed files
 * `.`: new files
 * `-`: deleted files
 

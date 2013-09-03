@@ -14,6 +14,7 @@ git_dirty() {
            index($0,"modified:") { changed = 1 }
            index($0,"new file:") { new = 1 }
            index($0,"deleted:") { deleted = 1 }
+           index($0,"renamed:") { changed = 1 }
            END {
              if (unknown) printf "?"
              else if (changed) printf "!"
