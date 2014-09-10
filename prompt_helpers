@@ -9,7 +9,7 @@ function PWD { tmp=${PWD%/*/*}; [ ${#tmp} -gt 0 -a "$tmp" != "$PWD" ] && echo ${
 function shortpath { tmp=${1%/*/*}; [ ${#tmp} -gt 0 -a "$tmp" != "$1" ] && echo ${1:${#tmp}+1} || echo $1; }
 
 function colorful_hostname {
-  echo $(fgc 31)`hostname`$(fgc 37):
+  echo $(fgc 31)`hostname`$(fgc 39):
 }
 
 # Here's a bunch of my old prompt strings, I should probably check these out and toss the crappy ones
